@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "khanyisa.api", "khanyisa.api\khanyisa.api.csproj", "{97C6176F-82D2-44EA-955C-4FE44441291A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F5E05BDF-F04C-4886-B2C0-00BD2A13B995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{1797CF2E-493D-4F77-B60D-47D653FE9658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{0F84E5B1-1AC2-4075-A89F-875B3679D931}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastruture", "Infrastruture\Infrastruture.csproj", "{6AAC97E5-1B82-4828-8511-581A9675707F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{0A960B4B-659C-47F0-8697-B36AB90B3965}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97C6176F-82D2-44EA-955C-4FE44441291A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C6176F-82D2-44EA-955C-4FE44441291A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C6176F-82D2-44EA-955C-4FE44441291A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C6176F-82D2-44EA-955C-4FE44441291A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1797CF2E-493D-4F77-B60D-47D653FE9658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1797CF2E-493D-4F77-B60D-47D653FE9658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1797CF2E-493D-4F77-B60D-47D653FE9658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1797CF2E-493D-4F77-B60D-47D653FE9658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F84E5B1-1AC2-4075-A89F-875B3679D931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F84E5B1-1AC2-4075-A89F-875B3679D931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F84E5B1-1AC2-4075-A89F-875B3679D931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84E5B1-1AC2-4075-A89F-875B3679D931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AAC97E5-1B82-4828-8511-581A9675707F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AAC97E5-1B82-4828-8511-581A9675707F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AAC97E5-1B82-4828-8511-581A9675707F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AAC97E5-1B82-4828-8511-581A9675707F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A960B4B-659C-47F0-8697-B36AB90B3965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A960B4B-659C-47F0-8697-B36AB90B3965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A960B4B-659C-47F0-8697-B36AB90B3965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A960B4B-659C-47F0-8697-B36AB90B3965}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97C6176F-82D2-44EA-955C-4FE44441291A} = {F5E05BDF-F04C-4886-B2C0-00BD2A13B995}
+		{1797CF2E-493D-4F77-B60D-47D653FE9658} = {F5E05BDF-F04C-4886-B2C0-00BD2A13B995}
+		{0F84E5B1-1AC2-4075-A89F-875B3679D931} = {F5E05BDF-F04C-4886-B2C0-00BD2A13B995}
+		{6AAC97E5-1B82-4828-8511-581A9675707F} = {F5E05BDF-F04C-4886-B2C0-00BD2A13B995}
+		{0A960B4B-659C-47F0-8697-B36AB90B3965} = {F5E05BDF-F04C-4886-B2C0-00BD2A13B995}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0DBFB5C-BCB4-4C71-9443-41763B17D0BD}
+	EndGlobalSection
+EndGlobal
