@@ -8,7 +8,7 @@ public static class ApiEndpoints
     {
         public const string Base = $"{ApiBase}/users";
 
-        public const string Create = Base;
+        public const string Create = "";
         public const string Get = $"{{userIdOrUsername}}";
         public const string GetAll = Base;
         public const string Update = $"{Base}/{{id:guid}}";

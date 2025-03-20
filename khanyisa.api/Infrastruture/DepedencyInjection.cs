@@ -12,6 +12,7 @@ public static class DepedencyInjection
     public static IServiceCollection AddInfrastruture(this IServiceCollection services)
     {
         services.AddSingleton<IUserRepo, UserRepo>();
+        services.AddSingleton<IAddressRepo, AddressRepo>();
 
         return services;
     }
@@ -23,6 +24,8 @@ public static class DepedencyInjection
             IOptions<DatabaseSettings> dbOptions = provider.GetRequiredService<IOptions<DatabaseSettings>>();
             return new ConnectionFactory(dbOptions.Value.ConnectionString);
         });
+
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
 
         return services;
     }

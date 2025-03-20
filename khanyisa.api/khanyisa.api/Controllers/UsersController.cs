@@ -28,7 +28,8 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-    public async Task<IActionResult> CreateUser([FromBody] ApplicationUserRequest request, CancellationToken token)
+    [HttpPost(ApiEndpoints.Users.Create)]
+    public async Task<IActionResult> CreateUser([FromBody] UserRequest request, CancellationToken token)
     {
         UserResponse? response = await _userService.CreateUser(request, token);
 

@@ -1,6 +1,7 @@
 using Application;
 using Infrastruture;
 using Infrastruture.Options;
+using khanyisa.api.Middleware;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware<ErrorMiddleware>();
 app.MapControllers();
 
 await app.RunAsync();

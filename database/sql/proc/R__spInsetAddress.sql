@@ -1,15 +1,16 @@
 CREATE OR ALTER PROCEDURE spInsetAddress
-    @Id Guid
-    @UserId Guid
-    @Type VARCHAR (20)
-    @City VARCHAR (200),
-    @Province VARCHAR (200),
-    @Country VARCHAR (200),
-    @Line1 VARCHAR (200),
-    @Line2 VARCHAR (200),
+    @Id UNIQUEIDENTIFIER,
+    @Type VARCHAR (10),
+    @City VARCHAR (50),
+    @Province VARCHAR (50),
+    @Country VARCHAR (255),
+    @Line1 VARCHAR (50),
+    @Line2 VARCHAR (50),
     @ZipCode INT,
+    @CreatedOn DATETIME,
+    @UserId UNIQUEIDENTIFIER
 AS
 BEGIN
-    INSERT INTO [Address] VALUES (@Id, @UserId, @Type, @City @Province, @Country,@Line1, @Line2, @ZipCode);
-    SELECT * FROM [Address] WHERE Id = (Select SCOPE_IDENTITY());
+    INSERT INTO [address] VALUES (@Id, @Type, @Line1, @Line2, @zipCode,@City,@Province, @Country, @CreatedOn, @UserId);
+    SELECT * FROM [address] WHERE Id = @Id;
 END;

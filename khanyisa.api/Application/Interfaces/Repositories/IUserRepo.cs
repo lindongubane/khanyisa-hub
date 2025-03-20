@@ -4,8 +4,8 @@ namespace Application.Interfaces.Repositories;
 
 public interface IUserRepo
 {
-    Task<ApplicationUser?> GetUserByUsernameAsync(string username, CancellationToken token = default);
-    Task<IEnumerable<ApplicationUser>> GetUserListAsync(CancellationToken token = default);
-    Task<ApplicationUser?> CreateUser(ApplicationUser user, CancellationToken token = default);
+    Task<User?> GetUserByUsernameAsync(string username, CancellationToken token = default);
+    Task<IEnumerable<User>> GetUserListAsync(CancellationToken token = default);
+    Task<User?> CreateUser(User user, CancellationToken token = default);
     Task<string?> GetLastUsername(CancellationToken token = default);
 }

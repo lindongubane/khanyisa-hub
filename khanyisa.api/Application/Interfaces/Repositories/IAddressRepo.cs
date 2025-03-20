@@ -1,5 +1,8 @@
-﻿namespace Application.Interfaces.Repositories;
+﻿using Domain.Model;
 
-public class IAddressRepo
+namespace Application.Interfaces.Repositories;
+
+public interface IAddressRepo
 {
+    Task<Address?> AddAddressAsync(Address address, CancellationToken token = default);
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
 using Application.Interfaces.Service;
 using Application.Mappings;
 using Contracts.Requests;
@@ -12,17 +11,31 @@ namespace Application.Services;
 public class UserService : IUserService
 {
     private readonly IUserRepo _userRepo;
-    private readonly IValidator<ApplicationUser> _userValidator;
+    private readonly IAddressService _addressService;
+    private readonly IValidator<User> _userValidator;
 
-    public UserService(IUserRepo userRepo, IValidator<ApplicationUser> userValidator)
+    public UserService(IUserRepo userRepo, IValidator<User> userValidator, IAddressService addressService)
     {
         _userRepo = userRepo;
         _userValidator = userValidator;
+        _addressService = addressService;
+    }
+
+    public async Task<UserResponse?> CreateUser(UserRequest request, CancellationToken token = default)
+    {
+        User? user = request.MapUser();
+
+        await _userValidator.ValidateAndThrowAsync(user, token);
+        user.Username = (await GenerateUsername(token)).ToString();
+
+        User? newUser = await _userRepo.CreateUser(user, token);
+
+        return newUser?.MapToResponse();
     }
 
     public async Task<UserResponse?> GetUserByUsernameAsync(string username, CancellationToken token = default)
     {
-        ApplicationUser? applicationUser = await _userRepo.GetUserByUsernameAsync(username, token);
+        User? applicationUser = await _userRepo.GetUserByUsernameAsync(username, token);
 
         if (applicationUser is null)
         {
@@ -34,18 +47,7 @@ public class UserService : IUserService
 
         return applicationUser?.MapToResponse();
     }
-
-    public async Task<UserResponse?> CreateUser(ApplicationUserRequest request, CancellationToken token = default)
-    {
-        ApplicationUser? user = request.MapToApplicationUser();
-        await _userValidator.ValidateAndThrowAsync(user, token);
-        user.Username = (await GenerateUsername(token)).ToString();
-
-        ApplicationUser newUser = await _userRepo.CreateUser(user, token);
-
-    }
-
-    public Task<IEnumerable<ApplicationUser>> GetUserListAsync(CancellationToken token = default) => throw new NotImplementedException();
+    public Task<IEnumerable<User>> GetUserListAsync(CancellationToken token = default) => throw new NotImplementedException();
 
     private async Task<int> GenerateUsername(CancellationToken token = default)
     {
