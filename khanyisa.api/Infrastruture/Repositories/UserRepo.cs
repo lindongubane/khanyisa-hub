@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Net;
 using Application.Interfaces.Repositories;
 using Dapper;
 using Domain.Model;

@@ -11,14 +11,14 @@ namespace Application.Services;
 public class UserService : IUserService
 {
     private readonly IUserRepo _userRepo;
-    private readonly IAddressService _addressService;
     private readonly IValidator<User> _userValidator;
+    private readonly IValidator<Address> _addressValidator;
 
-    public UserService(IUserRepo userRepo, IValidator<User> userValidator, IAddressService addressService)
+    public UserService(IUserRepo userRepo, IValidator<User> userValidator, IValidator<Address> addressValidator)
     {
         _userRepo = userRepo;
         _userValidator = userValidator;
-        _addressService = addressService;
+        _addressValidator = addressValidator;
     }
 
     public async Task<UserResponse?> CreateUser(UserRequest request, CancellationToken token = default)
@@ -26,6 +26,8 @@ public class UserService : IUserService
         User? user = request.MapUser();
 
         await _userValidator.ValidateAndThrowAsync(user, token);
+        await _addressValidator.ValidateAndThrowAsync(user.Address, token);
+
         user.Username = (await GenerateUsername(token)).ToString();
 
         User? newUser = await _userRepo.CreateUser(user, token);
@@ -41,9 +43,6 @@ public class UserService : IUserService
         {
             return applicationUser?.MapToResponse();
         }
-
-        //ApplicationUser.Roles = _roles.GetAllUserRolesAsync(ApplicationUser.Id).Result.ToList();
-        //ApplicationUser.Address = await _addressService.GetAddressAsync(ApplicationUser.Id);
 
         return applicationUser?.MapToResponse();
     }
